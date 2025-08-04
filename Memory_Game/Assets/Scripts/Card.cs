@@ -1,38 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using PrimeTween;
 
-public class Card : MonoBehaviour
+public class Card : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image iconImage;
+    private Sprite iconSprite;
+    private Sprite hiddenSprite;
+    private CardController controller;
+    private bool isFlipped;
+    private bool isInteractive = true;
 
-    public Sprite hiddenIconSprite;
-    public Sprite iconSprite;
+    public void SetCardController(CardController controller) => this.controller = controller;
+    public void SetIcon(Sprite icon, Sprite hidden) 
+    {
+        iconSprite = icon;
+        hiddenSprite = hidden;
+        iconImage.sprite = hidden;
+    }
+    public Sprite GetIcon() => iconSprite;
+    public bool IsFlipped => isFlipped;
 
-    public bool isSelected;
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (isInteractive)
+            controller.OnCardSelected(this);
+    }
     
-    public CardController controller;
-    
-    public void OnCardClick()
+    public bool IsMatched { get; set; }
+
+    public void FlipOpen()
     {
-        controller.SetSelected(this);
+        if (isFlipped) return;
+        
+        isInteractive = false;
+        Tween.Rotation(transform, Vector3.zero, 0.3f)
+            .OnComplete(() => 
+            {
+                iconImage.sprite = iconSprite;
+                isFlipped = true;
+                isInteractive = true;
+            });
     }
 
-    public void SetIconSprite(Sprite sp)
+    public void FlipClosed()
     {
-        iconSprite = sp;
-    }
+        if (!isFlipped) return;
 
-    public void Show()
-    {
-        iconImage.sprite = iconSprite;
-        isSelected = true;
-    }
-
-    public void Hide()
-    {
-        iconImage.sprite = hiddenIconSprite;
-        isSelected = false;
+        isInteractive = false;
+        Tween.Rotation(transform, new Vector3(0, 90, 0), 0.3f)
+            .OnComplete(() =>
+            {
+                iconImage.sprite = hiddenSprite;
+                Tween.Rotation(transform, Vector3.zero, 0.3f)
+                    .OnComplete(() => 
+                    {
+                        isFlipped = false;
+                        isInteractive = true;
+                    });
+            });
     }
 }

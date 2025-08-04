@@ -12,7 +12,7 @@ public class CardController : MonoBehaviour
 
  private List<Sprite> spritePairs;
 
- void start()
+private void Start()
  {
   PrepareSprites();
   CreateCards();
@@ -36,7 +36,16 @@ public class CardController : MonoBehaviour
   {
    Card card = Instantiate(cardPrefab, gridTransform);
    card.SetIconSprite(spritePairs[i]);
-   
+   card.controller = this;
+
+  }
+ }
+ 
+ public void SetSelected(Card card)
+ {
+  if (!card.isSelected == false)
+  {
+   card.Show();
   }
  }
 

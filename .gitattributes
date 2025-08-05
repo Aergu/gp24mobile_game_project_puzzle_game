@@ -1,3 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.bundle filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
 Memory_Game/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-13_0_0.* filter=lfs diff=lfs merge=lfs -text

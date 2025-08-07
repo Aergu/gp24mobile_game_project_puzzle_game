@@ -97,8 +97,3 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
-
-# Firebase SDK large binaries (manually installed)
-Memory_Game/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-13_0_0.bundle
-Memory_Game/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-13_0_0.so
-

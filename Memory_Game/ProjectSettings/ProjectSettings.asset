@@ -809,11 +809,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: edc7d788-86da-4382-a9c9-e3c7a65996ca
+  cloudProjectId: 98105757-10ff-4ca6-9b8c-e83eec0f879d
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Memory_Game
-  organizationId: frozztie
+  projectName: GP24_2dmobile_game_project
+  organizationId: yoshinoggin
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

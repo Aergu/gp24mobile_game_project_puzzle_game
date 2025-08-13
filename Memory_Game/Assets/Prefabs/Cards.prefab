@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.9}
-  m_SizeDelta: {x: 364, y: 508}
+  m_SizeDelta: {x: 251, y: 356}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2808788589546981726
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1762671696, guid: fcde5a2299c068c46887029f5e584d49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87f9601004616d940b4e9d65af24870d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -113,7 +113,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -268, y: 599}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &8609432598349742380
 Rigidbody2D:
@@ -200,9 +200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 0}
-  hiddenIconSprite: {fileID: -31507618, guid: fcde5a2299c068c46887029f5e584d49, type: 3}
-  iconSprite: {fileID: 0}
-  isSelected: 0
 --- !u!114 &8673111799322508515
 MonoBehaviour:
   m_ObjectHideFlags: 0

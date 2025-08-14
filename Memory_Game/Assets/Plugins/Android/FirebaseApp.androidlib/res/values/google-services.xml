@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">184550907695</string>
+  <string name="google_storage_bucket" translatable="false">svenska-memo.firebasestorage.app</string>
+  <string name="project_id" translatable="false">svenska-memo</string>
+  <string name="google_api_key" translatable="false">AIzaSyDHYLSNJfAgW4oa9DIuUQfVv3RkrrOgRFA</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDHYLSNJfAgW4oa9DIuUQfVv3RkrrOgRFA</string>
+  <string name="google_app_id" translatable="false">1:184550907695:android:0f9b535755d7bc17160bda</string>
+</resources>

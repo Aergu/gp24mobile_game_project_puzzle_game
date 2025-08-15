@@ -7,7 +7,6 @@ public class CardController : MonoBehaviour
     [SerializeField] private Card cardPrefab;
     [SerializeField] private Transform gridTransform;
     [SerializeField] private Sprite[] sprites;
-    [SerializeField] private Sprite cardBackSprite;
 
     private List<Card> allCards = new List<Card>();
     private List<Sprite> spritePairs;
@@ -40,7 +39,7 @@ public class CardController : MonoBehaviour
         {
             Card card = Instantiate(cardPrefab, gridTransform);
             card.SetCardController(this);
-            card.SetIcon(spritePairs[i], cardBackSprite);
+            card.SetIcon(spritePairs[i], GetHiddenSprite());
             allCards.Add(card);
         }
     }
@@ -95,13 +94,10 @@ public class CardController : MonoBehaviour
 
         if (firstSelected.GetIcon() == secondSelected.GetIcon())
         {
-            // Cards are marked as matched, they'll stay in place.
+            // Mark cards as matched (they'll stay in place)
             firstSelected.IsMatched = true;
             secondSelected.IsMatched = true;
             matchCount++;
-            
-            firstSelected.FlipOpen(0.2f);
-            secondSelected.FlipOpen(0.2f);
 
             if (matchCount >= spritePairs.Count / 2)
             {
@@ -132,5 +128,9 @@ public class CardController : MonoBehaviour
             list[j] = temp;
         }
     }
-    
+
+    private Sprite GetHiddenSprite()
+    {
+        return Resources.Load<Sprite>("CardBack");
+    }
 }

@@ -17,7 +17,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
     {
         iconSprite = icon;
         hiddenSprite = hidden;
-        iconImage.sprite = hiddenSprite;
+        iconImage.sprite = hidden;
     }
     public Sprite GetIcon() => iconSprite;
     public bool IsFlipped => isFlipped;
@@ -30,37 +30,30 @@ public class Card : MonoBehaviour, IPointerClickHandler
     
     public bool IsMatched { get; set; }
 
-    public void FlipOpen(float duration = 0.3f)
+    public void FlipOpen()
     {
         if (isFlipped) return;
         
         isInteractive = false;
-        float halfDuration = duration / 2f;
-        Tween.Rotation(transform, new Vector3(0, 90, 0), halfDuration, Ease.InOutSine)
+        Tween.Rotation(transform, Vector3.zero, 0.3f)
             .OnComplete(() => 
             {
                 iconImage.sprite = iconSprite;
-                Tween.Rotation(transform, Vector3.zero, halfDuration, Ease.InOutSine)
-                    .OnComplete(() =>
-                    {
-                        isFlipped = true;
-                        isInteractive = true;
-                    });
-
+                isFlipped = true;
+                isInteractive = true;
             });
     }
 
-    public void FlipClosed(float duration = 0.3f)
+    public void FlipClosed()
     {
         if (!isFlipped) return;
 
         isInteractive = false;
-        float halfDuration = duration / 2f;
-        Tween.Rotation(transform, new Vector3(0, 90, 0), halfDuration, Ease.InOutSine)
+        Tween.Rotation(transform, new Vector3(0, 90, 0), 0.3f)
             .OnComplete(() =>
             {
                 iconImage.sprite = hiddenSprite;
-                Tween.Rotation(transform, Vector3.zero, halfDuration, Ease.InOutSine)
+                Tween.Rotation(transform, Vector3.zero, 0.3f)
                     .OnComplete(() => 
                     {
                         isFlipped = false;

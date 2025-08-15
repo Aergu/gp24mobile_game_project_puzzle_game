@@ -55,6 +55,10 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+# Ignore this file
+
+google-services.xml
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
